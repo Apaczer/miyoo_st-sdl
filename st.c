@@ -2927,9 +2927,11 @@ main(int argc, char *argv[]) {
 			fprintf(stderr,"Unable to register SDL_Quit atexit\n");
 		}
 
+		/*
 		char path[PATH_MAX];
 		realpath(dirname(argv[0]), path);
 		snprintf(preload_libname, PATH_MAX + 17, "%s/libst-preload.so", path);
+		*/
 
 run:
     setlocale(LC_CTYPE, "");

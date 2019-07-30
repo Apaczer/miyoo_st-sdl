@@ -96,15 +96,15 @@ void init_keyboard() {
 char* help = 
 "How to use:\n"
 "  ARROWS: select key from keyboard\n"
-"  A: press key\n"
-"  B: toggle key (useful for shift/ctrl...)\n"
+"  B: press key\n"
+"  A: toggle key (useful for shift/ctrl...)\n"
 "  L: shift\n"
 "  R: backspace\n"
-"  Y: change keyboard location (top/bottom)\n"
-"  X: show / hide keyboard\n"
+"  X: change keyboard location (top/bottom)\n"
+"  Y: show / hide keyboard\n"
 "  SELECT: quit\n"
 "  START: show this help\n\n"
-"Cheatcheet (tutorial at www.shellscript.sh):\n"
+"Cheatsheet (tutorial at www.shellscript.sh):\n"
 "  TAB key         complete path\n"
 "  UP/DOWN keys    navigate history\n"
 "  pwd             print current directory\n"
@@ -116,9 +116,7 @@ char* help =
 "  top             see running processes (q to quit)\n"
 "  more <f>        see content of text file\n"
 "  file <f>        see type of file\n"
-"  opkg install <f.ipk>  install package\n"
-"  opkg remove <f>       remove package\n"
-"  grep <pattern> <f>    find in files\n"
+"  grep <txt> <f>  find text in files\n"
 ;
 
 void draw_keyboard(SDL_Surface* surface) {
@@ -129,9 +127,9 @@ void draw_keyboard(SDL_Surface* surface) {
 	unsigned short sel_toggled_color = SDL_MapRGB(surface->format, 255, 255, 128);
 	unsigned short toggled_color = SDL_MapRGB(surface->format, 192, 192, 0);
 	if(show_help) {
-		SDL_FillRect(surface, NULL, bg_color);
-		draw_string(surface, "SDL Terminal by Benob, based on st-sdl", 42, 10, sel_toggled_color);
-		draw_string(surface, help, 8, 28, sel_color);
+		SDL_FillRect(surface, NULL, text_color);
+		draw_string(surface, "SDL Terminal by Benob, based on st-sdl\n           Ported by SantX27           ", 42, 10, sel_toggled_color);
+		draw_string(surface, help, 8, 30, sel_color);
 		return;
 	}
 	if(!active) return;
