@@ -4,6 +4,23 @@
 #define NUM_ROWS 6
 #define NUM_KEYS 18
 
+#ifdef MIYOO
+
+#define KEY_UP SDLK_UP
+#define KEY_DOWN SDLK_DOWN
+#define KEY_LEFT SDLK_LEFT
+#define KEY_RIGHT SDLK_RIGHT
+#define KEY_ENTER SDLK_LALT // A
+#define KEY_TOGGLE SDLK_LCTRL // B
+#define KEY_BACKSPACE SDLK_BACKSPACE // R
+#define KEY_SHIFT SDLK_TAB // L
+#define KEY_LOCATION SDLK_LSHIFT // Y
+#define KEY_ACTIVATE SDLK_SPACE // X
+#define KEY_QUIT SDLK_ESCAPE // SELECT
+#define KEY_HELP SDLK_RETURN // START
+
+#else
+
 //#ifdef RS97
 
 #define KEY_UP SDLK_UP
@@ -20,7 +37,6 @@
 #define KEY_HELP SDLK_RETURN // START
 
 /*#else
-
 #define KEY_UP SDLK_UP
 #define KEY_DOWN SDLK_DOWN
 #define KEY_LEFT SDLK_LEFT
@@ -31,8 +47,8 @@
 #define KEY_SHIFT SDLK_s
 #define KEY_LOCATION SDLK_l
 #define KEY_ACTIVATE SDLK_BACKQUOTE
-
-#endif*/
+*/
+#endif
 
 #define KMOD_SYNTHETIC (1 << 13)
 
@@ -96,8 +112,8 @@ void init_keyboard() {
 char* help = 
 "How to use:\n"
 "  ARROWS: select key from keyboard\n"
-"  B: press key\n"
-"  A: toggle key (useful for shift/ctrl...)\n"
+"  A: press key\n"
+"  B: toggle key (useful for shift/ctrl...)\n"
 "  L: shift\n"
 "  R: backspace\n"
 "  X: change keyboard location (top/bottom)\n"
@@ -181,7 +197,7 @@ void update_modstate(int key, int state) {
 		else if(key == SDLK_LMETA) mod_state |= KMOD_LMETA;
 		else if(key == SDLK_RMETA) mod_state |= KMOD_RMETA;
 		//else if(key == SDLK_NUM) mod_state |= KMOD_NUM;
-		else if(key == SDLK_CAPSLOCK) mod_state |= KMOD_CAPS;
+		//else if(key == SDLK_CAPSLOCK) mod_state |= KMOD_CAPS;
 		else if(key == SDLK_MODE) mod_state |= KMOD_MODE;
 	} else if(state == STATE_UP) {
 		if(key == SDLK_LSHIFT) mod_state &= ~KMOD_LSHIFT;
@@ -193,7 +209,7 @@ void update_modstate(int key, int state) {
 		else if(key == SDLK_LMETA) mod_state &= ~KMOD_LMETA;
 		else if(key == SDLK_RMETA) mod_state &= ~KMOD_RMETA;
 		//else if(key == SDLK_NUM) mod_state &= ~KMOD_NUM;
-		else if(key == SDLK_CAPSLOCK) mod_state &= ~KMOD_CAPS;
+		//else if(key == SDLK_CAPSLOCK) mod_state &= ~KMOD_CAPS;
 		else if(key == SDLK_MODE) mod_state &= ~KMOD_MODE;
 	}
 	SDL_SetModState(mod_state);

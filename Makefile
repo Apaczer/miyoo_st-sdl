@@ -1,12 +1,12 @@
 # st - simple terminal
 # See LICENSE file for copyright and license details.
 
-include config_rs97.mk
+include config_miyoo.mk
 
 SRC = st.c keyboard.c font.c msg_queue.c
 OBJ = ${SRC:.c=.o}
 
-all: options st libst-preload.so sdl_test
+all: options st
 
 libst-preload.so: st-preload.o msg_queue.o
 	${CC} -shared -o $@ $^

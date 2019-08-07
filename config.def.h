@@ -18,7 +18,7 @@ static unsigned int doubleclicktimeout = 300;
 static unsigned int tripleclicktimeout = 600;
 
 /* TERM value */
-static char termname[] = "st-256color";
+static char termname[] = "xterm";
 
 static unsigned int tabspaces = 4;
 #define WORD_BREAK " "

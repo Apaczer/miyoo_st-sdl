@@ -13,9 +13,9 @@ LIBS = -lc -lutil
 
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\"
-CFLAGS += -g -Wall ${INCS} ${CPPFLAGS} -DRS97 -fPIC
+CFLAGS += -g -Wall ${INCS} ${CPPFLAGS} -DMIYOO -fPIC
 INCLUDES = -Iinclude $(SDL_CFLAGS)
-LDFLAGS = -Wl,--start-group -lSDL -lSDL_image -lpng -ljpeg -lasound -lSDL_mixer -lfreetype -lSDL_ttf -logg -lvorbisidec -lmikmod -lmodplug -lm -pthread -lz -lstdc++ $(EXTRA_LDFLAGS) -Wl,--end-group
+LDFLAGS = -g -lSDL -lasound
 
 # compiler and linker
 CC = $(CROSS_COMPILE)gcc
