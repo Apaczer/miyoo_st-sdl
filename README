@@ -9,8 +9,8 @@ Modified to run on Miyoo/Bittboy devices.
 
 Keys: 
 - pad: select key
-- B: press key
-- A: toggles key (useful for shift/ctrl...)
+- A: press key
+- B: toggles key (useful for shift/ctrl...)
 - L: is shift
 - R: is backspace
 - X: change keyboard location (top/bottom)
@@ -20,7 +20,7 @@ Keys:
 
 Requirements
 ------------
-In order to build st you need the Xlib header files.
+In order to build st you need the Xlib header files & libsdl1.2dev.
 Also, you'll need a working bittboy toolchain, grab one here:
 https://github.com/TriForceX/NewBittboyCFW/wiki/Making-Games
 
@@ -32,15 +32,9 @@ Compile it using make . or grab a compiled version from the releases tab
 
 Running st
 ----------
-If you don't install st, define TNAME to "xterm" in config.h or make sure to at
-least compile st terminfo entry with the following command:
-
-    tic -s st.info
-
-It should print the path of the compiled terminfo entry. You can
-safely remove it if you don't plan to use st anymore.
-See the man page for additional details.
+Just launch it from your device's applications section
 
 Credits
 -------
 Based on  Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.
+Based on code made by Benob
