@@ -16,8 +16,9 @@
 #define KEY_SHIFT SDLK_TAB // L
 #define KEY_LOCATION SDLK_LSHIFT // Y
 #define KEY_ACTIVATE SDLK_SPACE // X
-#define KEY_QUIT SDLK_ESCAPE // SELECT
-#define KEY_HELP SDLK_RETURN // START
+#define KEY_TAB SDLK_ESCAPE // SELECT
+#define KEY_RETURN SDLK_RETURN // START
+#define KEY_QUIT SDLK_RCTRL // RESET
 
 #else
 
@@ -118,8 +119,9 @@ char* help =
 "  R: backspace\n"
 "  X: change keyboard location (top/bottom)\n"
 "  Y: show / hide keyboard\n"
-"  SELECT: quit\n"
-"  START: show this help\n\n"
+"  SELECT: autocompletes text\n"
+"  START: executes written command\n"
+"  RETURN: quit\n\n"
 "Cheatsheet (tutorial at www.shellscript.sh):\n"
 "  TAB key         complete path\n"
 "  UP/DOWN keys    navigate history\n"
@@ -131,7 +133,6 @@ char* help =
 "  rm <f>          remove files (use -rf for dir)\n"
 "  top             see running processes (q to quit)\n"
 "  more <f>        see content of text file\n"
-"  file <f>        see type of file\n"
 "  grep <txt> <f>  find text in files\n"
 ;
 
@@ -276,9 +277,9 @@ int handle_keyboard_event(SDL_Event* event) {
 			// do nothing
 		} else if(event->key.keysym.sym == KEY_QUIT) {
 			exit(0);
-		} else if(event->key.keysym.sym == KEY_HELP) {
+		} /*else if(event->key.keysym.sym == KEY_HELP) {
 			show_help = 1;
-		} else if(event->key.keysym.sym == KEY_UP && selected_j > 0) {
+		}*/ else if(event->key.keysym.sym == KEY_UP && selected_j > 0) {
 			selected_i = compute_new_col(visual_offset, selected_j, selected_j - 1);
 			selected_j--;
 			//selected_i = selected_i * row_length[selected_j] / row_length[selected_j + 1];
@@ -300,6 +301,10 @@ int handle_keyboard_event(SDL_Event* event) {
 			location = !location;
 		} else if(event->key.keysym.sym == KEY_BACKSPACE) {
 			simulate_key(SDLK_BACKSPACE, STATE_TYPED);
+        } else if(event->key.keysym.sym == KEY_TAB) {
+			simulate_key(SDLK_TAB, STATE_TYPED);
+        } else if(event->key.keysym.sym == KEY_RETURN) {
+			simulate_key(SDLK_RETURN, STATE_TYPED);
 		} else if(event->key.keysym.sym == KEY_TOGGLE) {
 			toggled[selected_j][selected_i] = 1 - toggled[selected_j][selected_i];
 			if(toggled[selected_j][selected_i]) simulate_key(keys[shifted][selected_j][selected_i], STATE_DOWN);

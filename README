@@ -15,7 +15,9 @@ Keys:
 - R: is backspace
 - X: change keyboard location (top/bottom)
 - Y: show / hide keyboard
-- SELECT: quit
+- START: is enter
+- SELECT: is tab
+- RESET: exits the terminal
 
 
 Requirements
