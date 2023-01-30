@@ -5,7 +5,7 @@ VERSION = 0.3
 
 # paths
 CHAINPREFIX= /opt/bittboy-toolchain/
-CROSS_COMPILE=$(CHAINPREFIX)/bin/arm-miyoo-linux-musleabi-
+CROSS_COMPILE=$(CHAINPREFIX)/bin/arm-buildroot-linux-musleabi-
 
 # includes and libs
 INCS = -I. 

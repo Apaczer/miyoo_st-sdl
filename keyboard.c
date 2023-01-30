@@ -19,6 +19,7 @@
 #define KEY_TAB SDLK_ESCAPE // SELECT
 #define KEY_RETURN SDLK_RETURN // START
 #define KEY_QUIT SDLK_RCTRL // RESET
+#define KEY_HELP SDLK_PAGEDOWN // R2
 
 #else
 
@@ -98,7 +99,7 @@ static int shifted = 0;
 static int location = 0;
 static int active = 1;
 static int mod_state = 0;
-static int show_help = 1;
+static int show_help = 0;
 
 void init_keyboard() {
 	for(int j = 0; j < NUM_ROWS; j++)
@@ -277,9 +278,9 @@ int handle_keyboard_event(SDL_Event* event) {
 			// do nothing
 		} else if(event->key.keysym.sym == KEY_QUIT) {
 			exit(0);
-		} /*else if(event->key.keysym.sym == KEY_HELP) {
+		} else if(event->key.keysym.sym == KEY_HELP) {
 			show_help = 1;
-		}*/ else if(event->key.keysym.sym == KEY_UP && selected_j > 0) {
+		} else if(event->key.keysym.sym == KEY_UP && selected_j > 0) {
 			selected_i = compute_new_col(visual_offset, selected_j, selected_j - 1);
 			selected_j--;
 			//selected_i = selected_i * row_length[selected_j] / row_length[selected_j + 1];
