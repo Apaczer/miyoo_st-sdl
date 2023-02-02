@@ -4,7 +4,7 @@
 #define NUM_ROWS 6
 #define NUM_KEYS 18
 
-#ifdef MIYOO
+#if defined(MIYOO)
 
 #define KEY_UP SDLK_UP
 #define KEY_DOWN SDLK_DOWN
@@ -21,9 +21,7 @@
 #define KEY_QUIT SDLK_RCTRL // RESET
 #define KEY_HELP SDLK_PAGEDOWN // R2
 
-#else
-
-//#ifdef RS97
+#elif defined(RS97)
 
 #define KEY_UP SDLK_UP
 #define KEY_DOWN SDLK_DOWN
@@ -38,18 +36,23 @@
 #define KEY_QUIT SDLK_ESCAPE // SELECT
 #define KEY_HELP SDLK_RETURN // START
 
-/*#else
+#else
+
 #define KEY_UP SDLK_UP
 #define KEY_DOWN SDLK_DOWN
 #define KEY_LEFT SDLK_LEFT
 #define KEY_RIGHT SDLK_RIGHT
 #define KEY_ENTER SDLK_RETURN
 #define KEY_TOGGLE SDLK_SPACE
-#define KEY_BACKSPACE SDLK_b
+#define KEY_BACKSPACE SDLK_BACKSPACE
 #define KEY_SHIFT SDLK_s
 #define KEY_LOCATION SDLK_l
-#define KEY_ACTIVATE SDLK_BACKQUOTE
-*/
+#define KEY_ACTIVATE SDLK_a
+#define KEY_TAB SDLK_TAB // SELECT
+#define KEY_RETURN SDLK_RSHIFT // START
+#define KEY_QUIT SDLK_ESCAPE // RESET
+#define KEY_HELP SDLK_PAGEDOWN // R2
+
 #endif
 
 #define KMOD_SYNTHETIC (1 << 13)
