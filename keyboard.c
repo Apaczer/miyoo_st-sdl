@@ -43,15 +43,15 @@
 #define KEY_LEFT SDLK_LEFT
 #define KEY_RIGHT SDLK_RIGHT
 #define KEY_ENTER SDLK_RETURN
-#define KEY_TOGGLE SDLK_SPACE
+#define KEY_TOGGLE SDLK_LCTRL
 #define KEY_BACKSPACE SDLK_BACKSPACE
-#define KEY_SHIFT SDLK_s
-#define KEY_LOCATION SDLK_l
-#define KEY_ACTIVATE SDLK_a
-#define KEY_TAB SDLK_TAB // SELECT
-#define KEY_RETURN SDLK_RSHIFT // START
-#define KEY_QUIT SDLK_ESCAPE // RESET
-#define KEY_HELP SDLK_PAGEDOWN // R2
+#define KEY_SHIFT SDLK_LSHIFT
+#define KEY_LOCATION SDLK_RSHIFT
+#define KEY_ACTIVATE SDLK_LALT 
+#define KEY_TAB SDLK_TAB
+#define KEY_RETURN SDLK_SPACE
+#define KEY_QUIT SDLK_ESCAPE
+#define KEY_HELP SDLK_h
 
 #endif
 
@@ -115,6 +115,7 @@ void init_keyboard() {
 }
 
 char* help = 
+#if defined(MIYOO)
 "How to use:\n"
 "  ARROWS: select key from keyboard\n"
 "  A: press key\n"
@@ -126,6 +127,21 @@ char* help =
 "  SELECT: autocompletes text\n"
 "  START: executes written command\n"
 "  RETURN: quit\n\n"
+#else
+"How to use:\n"
+"  ARROWS: select key from keyboard\n"
+"  RETURN: press key\n"
+"  LCTRL: toggle key (useful for shift/ctrl...)\n"
+"  LSHIFT: shift\n"
+"  BACKSPACE: backspace\n"
+"  RSHIFT: change keyboard location (top/bottom)\n"
+"  LALT: show / hide keyboard\n"
+"  TAB: autocompletes text\n"
+"  SPACE: executes written command\n"
+"  ESCAPE: quit\n"
+"  H: show help screen\n\n"
+#endif
+
 "Cheatsheet (tutorial at www.shellscript.sh):\n"
 "  TAB key         complete path\n"
 "  UP/DOWN keys    navigate history\n"
