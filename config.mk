@@ -14,7 +14,7 @@ LIBS = -L/usr/lib -lc -lutil
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\"
 CFLAGS += -g -std=c99 -pedantic -Wall ${INCS} ${CPPFLAGS} `sdl-config --cflags` -fPIC
-LDFLAGS += -g ${LIBS} `sdl-config --libs` -lSDL_ttf
+LDFLAGS += -g ${LIBS} `sdl-config --libs`
 
 # compiler and linker
 CC ?= cc
