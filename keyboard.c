@@ -199,6 +199,9 @@ void draw_keyboard(SDL_Surface* surface) {
 			}
 			draw_string(surface, syms[shifted][j][i], x, y, text_color);
 			x += 6 * (length + 1);
+			if (active) {
+				draw_string(surface, "START+SELECT - shows HELP screen", 60, 233, sel_toggled_color);
+			}
 		}
 		y += 8;
 	}
