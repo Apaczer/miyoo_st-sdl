@@ -2340,7 +2340,7 @@ sdlinit(void) {
 		xw.w = xw.fw;
 	} else {
 		/* window - default size */
-		xw.h = 2*borderpx + term.row * xw.ch;
+		xw.h = 2*borderpx + term.row * xw.ch + 4;
 		xw.w = 2*borderpx + term.col * xw.cw;
 		xw.fx = 0;
 		xw.fy = 0;
