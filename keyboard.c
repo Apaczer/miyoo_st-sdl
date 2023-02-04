@@ -299,12 +299,10 @@ int handle_keyboard_event(SDL_Event* event) {
 	if(event->key.type == SDL_KEYDOWN && event->key.state == SDL_PRESSED) {
 		if(show_help) {
 			// do nothing
-		} else if(event->key.keysym.sym == KEY_QUIT) {
-			if(!shifted){
-				exit(0);
-			}else{
-				show_help = 1;
-			}
+		} else if((event->key.keysym.sym == KEY_BACKSPACE) && (shifted))  {
+			show_help = 1;
+		} else if(event->key.keysym.sym == KEY_QUIT){
+			exit(0);
 		} else if(event->key.keysym.sym == KEY_HELP) {
 			show_help = 1;
 		} else if(event->key.keysym.sym == KEY_UP && selected_j > 0) {
