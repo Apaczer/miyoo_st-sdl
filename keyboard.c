@@ -299,7 +299,11 @@ int handle_keyboard_event(SDL_Event* event) {
 		if(show_help) {
 			// do nothing
 		} else if(event->key.keysym.sym == KEY_QUIT) {
-			exit(0);
+			if(!shifted){
+				exit(0);
+			}else{
+				show_help = 1;
+			}
 		} else if(event->key.keysym.sym == KEY_HELP) {
 			show_help = 1;
 		} else if(event->key.keysym.sym == KEY_UP && selected_j > 0) {
