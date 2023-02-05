@@ -173,7 +173,7 @@ void draw_keyboard(SDL_Surface* surface) {
 #if defined(MIYOO)
 				draw_string(surface, "L1+R1 - shows HELP screen", 80, 233, sel_toggled_color);
 #else
-				draw_string(surface, "LSHIFT+ESC or H - shows HELP screen", 40, 233, sel_toggled_color);
+				draw_string(surface, "LSHIFT+BACKSPACE or H - shows HELP screen", 35, 233, sel_toggled_color);
 #endif
 	} else {
 			return;
