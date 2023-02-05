@@ -19,7 +19,7 @@
 #define KEY_TAB SDLK_ESCAPE // SELECT
 #define KEY_RETURN SDLK_RETURN // START
 #define KEY_QUIT SDLK_RCTRL // RESET
-#define KEY_HELP SDLK_PAGEDOWN // R2
+#define KEY_HELP SDLK_BACKQUOTE // no assignment
 
 #elif defined(RS97)
 
@@ -120,13 +120,13 @@ char* help =
 "  ARROWS: select key from keyboard\n"
 "  A: press key\n"
 "  B: toggle key (useful for shift/ctrl...)\n"
-"  L: shift\n"
-"  R: backspace\n"
+"  L1: shift\n"
+"  R1: backspace\n"
 "  X: change keyboard location (top/bottom)\n"
 "  Y: show / hide keyboard\n"
 "  SELECT: autocompletes text\n"
 "  START: executes written command\n"
-"  RETURN: quit\n\n"
+"  RESET: quit\n\n"
 #else
 "How to use:\n"
 "  ARROWS: select key from keyboard\n"
@@ -170,7 +170,11 @@ void draw_keyboard(SDL_Surface* surface) {
 		return;
 	}
 	if (active) {
+#if defined(MIYOO)
 				draw_string(surface, "L1+R1 - shows HELP screen", 80, 233, sel_toggled_color);
+#else
+				draw_string(surface, "LSHIFT+ESC or H - shows HELP screen", 40, 233, sel_toggled_color);
+#endif
 	} else {
 			return;
 	}
