@@ -313,7 +313,7 @@ int handle_keyboard_event(SDL_Event* event) {
 		active = ! active;
 		return 1;
 	}
-	if(!active) return 0;
+	if(!active && !(event->key.keysym.sym == KEY_QUIT)) return 0;
 	if((event->key.type == SDL_KEYUP || event->key.type == SDL_KEYDOWN) && event->key.keysym.mod & KMOD_SYNTHETIC) return 0;
 
 	if(event->key.type == SDL_KEYDOWN && event->key.state == SDL_PRESSED) {
