@@ -20,6 +20,10 @@
 #define KEY_RETURN SDLK_RETURN // START
 #define KEY_QUIT SDLK_RCTRL // RESET
 #define KEY_HELP SDLK_BACKQUOTE // no assignment
+#define KEY_ARROW_LEFT	SDLK_PAGEUP //L2
+#define KEY_ARROW_RIGHT	SDLK_PAGEDOWN //R2
+#define KEY_ARROW_UP	SDLK_RALT //L3
+#define KEY_ARROW_DOWN	SDLK_RSHIFT //R3
 
 #elif defined(RS97)
 
@@ -35,6 +39,10 @@
 #define KEY_ACTIVATE SDLK_SPACE // X
 #define KEY_QUIT SDLK_ESCAPE // SELECT
 #define KEY_HELP SDLK_RETURN // START
+#define KEY_ARROW_LEFT	SDLK_PAGEUP //LEFT
+#define KEY_ARROW_RIGHT	SDLK_PAGEDOWN //RIGHT
+#define KEY_ARROW_UP	SDLK_KP_DIVIDE //LEFT
+#define KEY_ARROW_DOWN	SDLK_KP_PERIOD //RIGHT
 
 #else
 
@@ -52,6 +60,10 @@
 #define KEY_RETURN SDLK_SPACE
 #define KEY_QUIT SDLK_ESCAPE
 #define KEY_HELP SDLK_h
+#define KEY_ARROW_LEFT	SDLK_KP_4
+#define KEY_ARROW_RIGHT	SDLK_KP_6
+#define KEY_ARROW_DOWN	SDLK_KP_2
+#define KEY_ARROW_UP	SDLK_KP_8
 
 #endif
 
@@ -127,6 +139,10 @@ char* help =
 "  SELECT: autocompletes text\n"
 "  START: executes written command\n"
 "  RESET: quit\n\n"
+"  L2:     left\n"
+"  R2:     right\n"
+"  L3:     up\n"
+"  R3:     down\n"
 #else
 "How to use:\n"
 "  ARROWS: select key from keyboard\n"
@@ -140,6 +156,10 @@ char* help =
 "  SPACE: executes written command\n"
 "  ESCAPE: quit\n"
 "  H: show help screen\n\n"
+"  Numpad 4:     left\n"
+"  Numpad 6:     right\n"
+"  Numpad 8:     up\n"
+"  Numpad 2:     down\n"
 #endif
 
 "Cheatsheet (tutorial at www.shellscript.sh):\n"
@@ -331,6 +351,14 @@ int handle_keyboard_event(SDL_Event* event) {
 			location = !location;
 		} else if(event->key.keysym.sym == KEY_BACKSPACE) {
 			simulate_key(SDLK_BACKSPACE, STATE_TYPED);
+		} else if(event->key.keysym.sym == KEY_ARROW_UP) {
+			simulate_key(SDLK_UP, STATE_TYPED);
+		} else if(event->key.keysym.sym == KEY_ARROW_DOWN) {
+			simulate_key(SDLK_DOWN, STATE_TYPED);
+		} else if(event->key.keysym.sym == KEY_ARROW_LEFT) {
+			simulate_key(SDLK_LEFT, STATE_TYPED);
+		} else if(event->key.keysym.sym == KEY_ARROW_RIGHT) {
+			simulate_key(SDLK_RIGHT, STATE_TYPED);
         } else if(event->key.keysym.sym == KEY_TAB) {
 			simulate_key(SDLK_TAB, STATE_TYPED);
         } else if(event->key.keysym.sym == KEY_RETURN) {
