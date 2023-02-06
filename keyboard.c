@@ -378,6 +378,8 @@ int handle_keyboard_event(SDL_Event* event) {
 			} else {
 				simulate_key(key, STATE_TYPED);
 			}
+		} else {
+			fprintf(stderr,"key: %d",event->key.keysym.sym);
 		}
 	} else if(event->key.type == SDL_KEYUP || event->key.state == SDL_RELEASED) {
 		if(show_help) {
