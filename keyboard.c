@@ -138,11 +138,11 @@ char* help =
 "  Y: show / hide keyboard\n"
 "  SELECT: autocompletes text\n"
 "  START: executes written command\n"
-"  RESET: quit\n\n"
-"  L2:     left\n"
-"  R2:     right\n"
-"  L3:     up\n"
-"  R3:     down\n"
+"  RESET: quit\n"
+"  L2: left on CL\n"
+"  R2: right on CL\n"
+"  L3: up on CL\n"
+"  R3: down on CL\n\n"
 #else
 "How to use:\n"
 "  ARROWS: select key from keyboard\n"
@@ -155,24 +155,20 @@ char* help =
 "  TAB: autocompletes text\n"
 "  SPACE: executes written command\n"
 "  ESCAPE: quit\n"
-"  H: show help screen\n\n"
-"  Numpad 4:     left\n"
-"  Numpad 6:     right\n"
-"  Numpad 8:     up\n"
-"  Numpad 2:     down\n"
+"  H: show help screen\n"
+"  Numpad 4: left on CL\n"
+"  Numpad 6: right on CL\n"
+"  Numpad 8: up on CL\n"
+"  Numpad 2: down on CL\n\n"
 #endif
 
 "Cheatsheet (tutorial at www.shellscript.sh):\n"
-"  TAB key         complete path\n"
-"  UP/DOWN keys    navigate history\n"
 "  pwd             print current directory\n"
 "  ls              list files (-l for file size)\n"
 "  cd <d>          change directory (.. = go up)\n"
 "  cp <f> <d>      copy files (dest can be dir)\n"
 "  mv <f> <d>      move files (dest can be dir)\n"
 "  rm <f>          remove files (use -rf for dir)\n"
-"  top             see running processes (q to quit)\n"
-"  more <f>        see content of text file\n"
 "  grep <txt> <f>  find text in files\n"
 ;
 
@@ -185,7 +181,7 @@ void draw_keyboard(SDL_Surface* surface) {
 	unsigned short toggled_color = SDL_MapRGB(surface->format, 192, 192, 0);
 	if(show_help) {
 		SDL_FillRect(surface, NULL, text_color);
-		draw_string(surface, "SDL Terminal by Benob, based on st-sdl\n           Ported by SantX27           ", 42, 10, sel_toggled_color);
+		draw_string(surface, "SDL Terminal by Benob, based on st-sdl\n Ported by SantX27 (modded by Apaczer)", 42, 10, sel_toggled_color);
 		draw_string(surface, help, 8, 30, sel_color);
 		return;
 	}
