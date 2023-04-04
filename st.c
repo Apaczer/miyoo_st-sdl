@@ -46,7 +46,7 @@
 #define USAGE \
 	"st " VERSION " (c) 2010-2012 st engineers\n" \
 	"usage: st [-v] [-c class] [-f font] [-g geometry] [-o file]" \
-	" [-t title] [-e command ...]\n"
+	" [-t title] [-e command ...] [-k value 1 hides keyboard]\n"
 
 /* Arbitrary sizes */
 #define ESC_BUF_SIZ   256
@@ -380,6 +380,7 @@ static char *opt_io = NULL;
 static char *opt_title = NULL;
 static char *opt_class = NULL;
 static char *opt_font = NULL;
+static char *opt_keyboard = NULL;
 
 static char *usedfont = NULL;
 static int usedfontsize = 0;
@@ -449,7 +450,9 @@ xflip(void) {
     SDL_UnlockSurface(screen);
 #else
 		SDL_BlitSurface(xw.win, NULL, screen, NULL);
+    if (!(keyboardOFF == 1)) {
 		draw_keyboard(screen);
+    }
 #endif
 
 	if(SDL_Flip(screen)) {
@@ -2916,6 +2919,13 @@ main(int argc, char *argv[]) {
             case 't':
                 if(++i < argc)
                     opt_title = argv[i];
+                break;
+            case 'k':
+                if (!(argv == 1)){
+                    keyboardOFF=true;
+                } else {
+                    keyboardOFF=false;
+                }
                 break;
             case 'v':
             default:
