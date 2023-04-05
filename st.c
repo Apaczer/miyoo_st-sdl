@@ -46,7 +46,7 @@
 #define USAGE \
 	"st " VERSION " (c) 2010-2012 st engineers\n" \
 	"usage: st [-v] [-c class] [-f font] [-g geometry] [-o file]" \
-	" [-t title] [-e command ...] [-k keyboard hide]\n"
+	" [-t title] [-e command ...] [-k hide&disable SDL_keyboard]\n"
 
 /* Arbitrary sizes */
 #define ESC_BUF_SIZ   256
