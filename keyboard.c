@@ -131,11 +131,11 @@ char* help =
 "How to use:\n"
 "  ARROWS: select key from keyboard\n"
 "  A: press key\n"
-"  B: toggle key (useful for shift/ctrl...)\n"
+"  Y: toggle key (useful for shift/ctrl...)\n"
 "  L1: shift\n"
 "  R1: backspace\n"
 "  X: change keyboard location (top/bottom)\n"
-"  Y: show / hide keyboard\n"
+"  B: show / hide keyboard\n"
 "  SELECT: autocompletes text\n"
 "  START: executes written command\n"
 "  RESET: quit\n"
@@ -309,7 +309,7 @@ int compute_new_col(int visual_offset, int old_row, int new_row) {
 
 int handle_keyboard_event(SDL_Event* event) {
 	static int visual_offset = 0;
-	if(event->key.type == SDL_KEYDOWN && !(event->key.keysym.mod & KMOD_SYNTHETIC) && event->key.keysym.sym == KEY_ACTIVATE) {
+	if(event->key.type == SDL_KEYUP && !(event->key.keysym.mod & KMOD_SYNTHETIC) && event->key.keysym.sym == KEY_ACTIVATE) {
 		active = ! active;
 		return 1;
 	}
