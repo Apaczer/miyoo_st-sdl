@@ -9,11 +9,11 @@ Modified to run on Miyoo/Bittboy devices.
 Keys for MiyooCFW 2.0: 
 - pad: select key
 - A: press key
-- B: toggles key (useful for shift/ctrl...)
+- Y: toggles key (useful for shift/ctrl...)
 - L1: is shift
 - R1: is backspace
 - X: change keyboard location (top/bottom)
-- Y: show / hide keyboard
+- B: show / hide keyboard
 - START: is enter
 - SELECT: is tab
 - RESET: exits the terminal
@@ -26,8 +26,8 @@ Keys for MiyooCFW 2.0:
 Requirements
 ------------
 In order to build st you need the Xlib header files & libsdl1.2dev.
-Also, you'll need a working bittboy toolchain build with static libs, grab one here:
-https://github.com/bittboy/buildroot/
+Also, you'll need a working SDK build, grab one here:
+https://github.com/MiyooCFW/buildroot/
 
 
 Installation
